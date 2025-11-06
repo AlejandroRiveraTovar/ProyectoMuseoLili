@@ -20,7 +20,7 @@ namespace ProyectoMuseoLili.models
         }
 
         public int IdMP { get => idMP; set => idMP = value; }
-        public string UUIDPieza_PMP { get => UUIDPieza_PMP; set => UUIDPieza_PMP = value; }
-        public int UUIDMaterial_MMP { get => UUIDMaterial_MMP; set => UUIDMaterial_MMP = value; }
+        public string UUIDPieza_PMP1 { get => UUIDPieza_PMP; set => UUIDPieza_PMP = value; }
+        public int UUIDMaterial_MMP1 { get => UUIDMaterial_MMP; set => UUIDMaterial_MMP = value; }
     }
 }

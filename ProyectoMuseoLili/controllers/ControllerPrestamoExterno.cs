@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoMuseoLili.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewPrestamo(PrestamoExterno objPE)
         {
-            string sql = $"INSERT INTO prestamosExternos VALUES ('{objPE.UUIDPrestamoExterno}','{objPE.Institucion}',,'{objPE.DireccionI}','{objPE.FechaPrestamo}','{objPE.FechaDevolucion}','{objPE.DescripcionPrestamoExterno}');";
+            string sql = $"INSERT INTO prestamosExternos VALUES ('{objPE.UUIDPrestamoExterno1}','{objPE.Institucion}',,'{objPE.DireccionI}','{objPE.FechaPrestamo}','{objPE.FechaDevolucion}','{objPE.DescripcionPrestamoExterno}');";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }

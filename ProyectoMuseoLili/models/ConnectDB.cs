@@ -122,15 +122,15 @@ namespace ProyectoMuseoLili.models
                 while (reader.Read())
                 {
                     Pieza objP = new Pieza();
-                    objP.UuidPieza = reader["UUIDPieza"].ToString();
+                    objP.UUIDPieza1 = reader["UUIDPieza"].ToString();
                     objP.NombrePieza = reader["nombrePieza"].ToString();
                     objP.DescripcionPieza = reader["descripcionPieza"].ToString();
                     objP.FechaIngreso = Convert.ToDateTime(reader["fechaIngresoPieza"]);
-                    objP.FechaAprox = Convert.ToDateTime(reader["fechaAproxCP"]);
-                    objP.Alto = Convert.ToDecimal(reader["AltoP"]);
-                    objP.Ancho = Convert.ToDecimal(reader["AnchoP"]);
-                    objP.Profundidad = Convert.ToDecimal(reader["ProfundidadP"]);
-                    objP.Ubicacion = reader["ubicacionP"].ToString();
+                    objP.FechaAproxC = Convert.ToDateTime(reader["fechaAproxCP"]);
+                    objP.AltoP = (float)Convert.ToDecimal(reader["AltoP"]);
+                    objP.AnchoP = (float)Convert.ToDecimal(reader["AnchoP"]);
+                    objP.ProfundidadP = (float)Convert.ToDecimal(reader["ProfundidadP"]);
+                    objP.UbicacionP = reader["ubicacionP"].ToString();
                     objP.EstadoConservacion = reader["estadoConservacion"].ToString();
 
                     lista.Add(objP);
@@ -154,15 +154,16 @@ namespace ProyectoMuseoLili.models
             Usuario usuario = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     usuario = new Usuario
                     {
-                        UuidUsuario = reader["UUIDUsuario"].ToString(),
+                        UUIDUsuario1 = reader["UUIDUsuario"].ToString(),
                         CedulaUsuario = reader["cedulaUsuario"].ToString(),
                         Nombre1Usuario = reader["nombre1Usuario"].ToString(),
                         Nombre2Usuario = reader["nombre2Usuario"].ToString(),
@@ -171,7 +172,7 @@ namespace ProyectoMuseoLili.models
                         EmailUsuario = reader["emailUsuario"].ToString(),
                         TelefonoUsuario = reader["telefonoUsuario"].ToString(),
                         PasswordUsuario = reader["passwordUsuario"].ToString(),
-                        IdRol_U = Convert.ToInt32(reader["idRol_RU"])
+                        IdRol_RU = Convert.ToInt32(reader["idRol_RU"])
                     };
                 }
                 reader.Close();
@@ -182,7 +183,7 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return usuario;
         }
@@ -193,8 +194,9 @@ namespace ProyectoMuseoLili.models
             Rol rol = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -214,7 +216,7 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return rol;
         }
@@ -225,26 +227,27 @@ namespace ProyectoMuseoLili.models
             Pieza pieza = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+               
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     pieza = new Pieza
                     {
-                        UuidPieza = reader["UUIDPieza"].ToString(),
+                        UUIDPieza1 = reader["UUIDPieza"].ToString(),
                         NombrePieza = reader["nombrePieza"].ToString(),
                         DescripcionPieza = reader["descripcionPieza"].ToString(),
                         FechaIngreso = Convert.ToDateTime(reader["fechaIngresoPieza"]),
-                        FechaAprox = Convert.ToDateTime(reader["fechaAproxCP"]),
-                        Alto = float.Parse(reader["AltoP"].ToString()),
-                        Ancho = float.Parse(reader["AnchoP"].ToString()),
-                        Profundidad = float.Parse(reader["ProfundidadP"].ToString()),
-                        Ubicacion = reader["ubicacionP"].ToString(),
+                        FechaAproxC = Convert.ToDateTime(reader["fechaAproxCP"]),
+                        AltoP = float.Parse(reader["AltoP"].ToString()),
+                        AnchoP = float.Parse(reader["AnchoP"].ToString()),
+                        ProfundidadP = float.Parse(reader["ProfundidadP"].ToString()),
+                        UbicacionP = reader["ubicacionP"].ToString(),
                         EstadoConservacion = reader["estadoConservacion"].ToString(),
-                        UuidUsuario_UP = reader["UUIDUsuario_UP"].ToString(),
-                        UuidColeccion_CP = reader["UUIDColeccion_CP"].ToString(),
+                        UUIDUsuario_UP1 = reader["UUIDUsuario_UP"].ToString(),
+                        UUIDColeccion_CP1 = reader["UUIDColeccion_CP"].ToString(),
                         IdCategoria_CP = Convert.ToInt32(reader["idCategoria_CP"])
                     };
                 }
@@ -256,7 +259,7 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return pieza;
         }
@@ -267,8 +270,9 @@ namespace ProyectoMuseoLili.models
             Categoria categoria = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+               
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -288,7 +292,7 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return categoria;
         }
@@ -299,15 +303,16 @@ namespace ProyectoMuseoLili.models
             Exhibicion exhibicion = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     exhibicion = new Exhibicion
                     {
-                        UuidExhibicion = reader["UUIDExhibicion"].ToString(),
+                        UUIDExhibicion1 = reader["UUIDExhibicion"].ToString(),
                         NombreExhibicion = reader["nombreExhibicion"].ToString(),
                         DescripcionExhibicion = reader["descripcionExhibicion"].ToString(),
                         FechaInicio = Convert.ToDateTime(reader["fechaInicio"]),
@@ -322,7 +327,7 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return exhibicion;
         }
@@ -333,20 +338,21 @@ namespace ProyectoMuseoLili.models
             PrestamoExterno prestamo = null;
             try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                MySqlCommand cmd = new MySqlCommand(sql, DataSource());
+                ConnectOpened();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     prestamo = new PrestamoExterno
                     {
-                        UuidPrestamoExterno = reader["UUIDPrestamo_Externo"].ToString(),
+                        UUIDPrestamoExterno1 = reader["UUIDPrestamo_Externo"].ToString(),
                         Institucion = reader["institucion"].ToString(),
-                        Direccion = reader["direccionI"].ToString(),
+                        DireccionI = reader["direccionI"].ToString(),
                         FechaPrestamo = Convert.ToDateTime(reader["fechaPrestamo"]),
                         FechaDevolucion = Convert.ToDateTime(reader["fechaDevolucion"]),
-                        DescripcionPrestamo = reader["descripcionPrestamoExterno"].ToString()
+                        DescripcionPrestamoExterno = reader["descripcionPrestamoExterno"].ToString()
                     };
                 }
                 reader.Close();
@@ -357,9 +363,24 @@ namespace ProyectoMuseoLili.models
             }
             finally
             {
-                conn.Close();
+                ConnectClosed();
             }
             return prestamo;
+        }
+
+        internal Material BuscarMaterial(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal FotoPieza BuscarFoto(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Coleccion BuscarColeccion(string sql)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -43,7 +43,18 @@ namespace ProyectoMuseoLili.models
             this.passwordUsuario = passwordUsuario;
         }
 
-        public string UUIDUsuario { get => UUIDUsuario; set => UUIDUsuario = value; }
+        public Usuario(string emailUsuario, string passwordUsuario)
+        {
+            this.emailUsuario = emailUsuario;
+            this.passwordUsuario = passwordUsuario;
+        }
+
+        public Usuario(string emailUsuario)
+        {
+            this.emailUsuario = emailUsuario;
+        }
+
+        public string UUIDUsuario1 { get => UUIDUsuario; set => UUIDUsuario = value; }
         public string CedulaUsuario { get => cedulaUsuario; set => cedulaUsuario = value; }
         public string Nombre1Usuario { get => nombre1Usuario; set => nombre1Usuario = value; }
         public string Nombre2Usuario { get => nombre2Usuario; set => nombre2Usuario = value; }

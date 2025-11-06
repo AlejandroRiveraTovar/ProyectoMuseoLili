@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoMuseoLili.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewPieza(Pieza objP)
         {
-            string sql = $"INSERT INTO piezas VALUES ('{objP.UUIDPieza}','{objP.NombrePieza}','{objP.DescripcionPieza}','{objP.FechaIngresoPieza}','{objP.FechaAproxCP}',{objP.AltoP},{objP.AnchoP},{objP.ProfundidadP},'{objP.UbicacionP}','{objP.EstadoConservacion}','{objP.UUIDUsuario_UP}','{objP.UUIDColeccion_CP}',{objP.IdCategoria_CP});";
+            string sql = $"INSERT INTO piezas VALUES ('{objP.UUIDPieza1}','{objP.NombrePieza}','{objP.DescripcionPieza}','{objP.FechaIngreso}','{objP.FechaAproxC}',{objP.AltoP},{objP.AnchoP},{objP.ProfundidadP},'{objP.UbicacionP}','{objP.EstadoConservacion}','{objP.UUIDUsuario_UP1}','{objP.UUIDColeccion_CP1}',{objP.IdCategoria_CP});";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }

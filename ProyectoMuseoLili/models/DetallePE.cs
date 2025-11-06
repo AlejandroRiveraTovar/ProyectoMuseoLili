@@ -20,7 +20,7 @@ namespace ProyectoMuseoLili.models
         }
 
         public int IdDP { get => idDP; set => idDP = value; }
-        public string UUIDPieza_PDP { get => UUIDPieza_PDP; set => UUIDPieza_PDP = value; }
-        public string UUIDPrestamo_Externo_PEDP { get => UUIDPrestamo_Externo_PEDP; set => UUIDPrestamo_Externo_PEDP = value; }
+        public string UUIDPieza_PDP1 { get => UUIDPieza_PDP; set => UUIDPieza_PDP = value; }
+        public string UUIDPrestamo_Externo_PEDP1 { get => UUIDPrestamo_Externo_PEDP; set => UUIDPrestamo_Externo_PEDP = value; }
     }
 }

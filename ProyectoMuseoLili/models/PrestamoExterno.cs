@@ -36,7 +36,7 @@ namespace ProyectoMuseoLili.models
             this.descripcionPrestamoExterno = descripcionPrestamoExterno;
         }
 
-        public string UUIDPrestamoExterno { get => UUIDPrestamoExterno; set => UUIDPrestamoExterno = value; }
+        public string UUIDPrestamoExterno1 { get => UUIDPrestamoExterno; set => UUIDPrestamoExterno = value; }
         public string Institucion { get => institucion; set => institucion = value; }
         public string DireccionI { get => direccionI; set => direccionI = value; }
         public DateTime FechaPrestamo { get => fechaPrestamo; set => fechaPrestamo = value; }
