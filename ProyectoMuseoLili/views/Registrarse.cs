@@ -31,14 +31,21 @@ namespace ProyectoMuseoLili.views
         {
             string nombre = textBox6.Text;
             string apellido = textBox5.Text;
-            string correo = textBox1.Text;
+            
             string password = textBox2.Text;
             string cedula = textBox4.Text;
             string telefono = textBox3.Text;
-            string nombre2 = textBox8.Text;
-            string apellido2 = textBox7.Text;
+     
+            string? nombre2 = string.IsNullOrWhiteSpace(textBox8.Text) ? null : textBox8.Text.Trim();
+            string? apellido2 = string.IsNullOrWhiteSpace(textBox7.Text) ? null : textBox7.Text.Trim();
             string uuid = Guid.NewGuid().ToString();
 
+            string correo = textBox1.Text;
+            if (!correo.Contains("@")) 
+            {
+                MessageBox.Show("Escribe un correo valido que contenga @");
+                return;
+            }
             Usuario newUser = new Usuario
             {
                 UUIDUsuario1 = uuid,
