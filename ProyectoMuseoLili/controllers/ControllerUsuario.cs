@@ -33,7 +33,7 @@ namespace ProyectoMuseoLili.controllers
 
         internal Usuario LoginUsuario(string correo, string contrasena)
         {
-            string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}';";
+            string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}' AND passwordUsuario='{contrasena}';";
             ConnectDB objCDB = new ConnectDB();
             return objCDB.BuscarUsuario(sql);
         }

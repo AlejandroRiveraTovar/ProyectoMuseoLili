@@ -58,7 +58,7 @@ namespace ProyectoMuseoLili.views
             label2.Size = new Size(43, 15);
             label2.TabIndex = 1;
             label2.Text = "Correo";
-            label2.Click += this.label2_Click;
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -68,12 +68,12 @@ namespace ProyectoMuseoLili.views
             label3.Size = new Size(67, 15);
             label3.TabIndex = 2;
             label3.Text = "Contraseña";
-            label3.Click += this.label3_Click;
+            label3.Click += label3_Click;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(299, 280);
+            linkLabel1.Location = new Point(298, 280);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(119, 15);
             linkLabel1.TabIndex = 3;
@@ -97,7 +97,7 @@ namespace ProyectoMuseoLili.views
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(239, 23);
             textBox1.TabIndex = 5;
-            textBox1.TextChanged += this.textBox1_TextChanged;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -118,7 +118,7 @@ namespace ProyectoMuseoLili.views
             linkLabel2.TabIndex = 7;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Registrarse";
-            linkLabel2.LinkClicked += this.linkLabel2_LinkClicked;
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // Login
             // 
