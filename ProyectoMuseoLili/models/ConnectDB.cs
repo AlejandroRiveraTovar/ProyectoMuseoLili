@@ -12,7 +12,7 @@ namespace ProyectoMuseoLili.models
         public MySqlConnection connManager = new MySqlConnection();
         string server = "127.0.0.1;";
         //string database = "sakila;";
-        string database = "museolili;";
+        string database = "museolilidb;";
         string user = "root;";
         string pass = "root;";
 
@@ -108,7 +108,9 @@ namespace ProyectoMuseoLili.models
             }
             return result;
         }
+       
 
+<<<<<<< Updated upstream
         // Ejecutar consulta y devolver lista de objetos PIEZA (usado en filtros/reportes)
         public List<Pieza> BuscarListaPiezas(string sql)
         {
@@ -360,6 +362,22 @@ namespace ProyectoMuseoLili.models
                 conn.Close();
             }
             return prestamo;
+=======
+
+        internal Material BuscarMaterial(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal FotoPieza BuscarFoto(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Coleccion BuscarColeccion(string sql)
+        {
+            throw new NotImplementedException();
+>>>>>>> Stashed changes
         }
     }
 }

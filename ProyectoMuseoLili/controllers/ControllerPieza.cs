@@ -18,8 +18,8 @@ namespace ProyectoMuseoLili.controllers
         internal Pieza BuscarPieza(string UUIDPieza)
         {
             string sql = $"SELECT * FROM piezas WHERE uuidPieza='{UUIDPieza}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarPieza(sql);
+            Pieza objP = new Pieza();
+            return objP.BuscarPieza(sql);
         }
 
         internal List<Pieza> BuscarPiezasPorCategoria(int idCategoria)
