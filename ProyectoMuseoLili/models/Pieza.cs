@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,8 @@ namespace ProyectoMuseoLili.models
         private string UUIDUsuario_UP;
         private string UUIDColeccion_CP;
         private int idCategoria_CP;
+
+        ConnectDB objConnection = new ConnectDB();
 
         public Pieza()
         {
@@ -47,7 +51,87 @@ namespace ProyectoMuseoLili.models
             this.estadoConservacion = estadoConservacion;
         }
 
+<<<<<<< Updated upstream
         public string UUIDPieza1 { get => UUIDPieza; set => UUIDPieza = value; }
+=======
+<<<<<<< Updated upstream
+        public string UUIDPieza { get => UUIDPieza; set => UUIDPieza = value; }
+=======
+        // =================== Buscar Pieza ===================
+        public Pieza BuscarPieza(string sql)
+        {
+            Pieza pieza = null;
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sql, objConnection.DataSource());
+                objConnection.ConnectOpened();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    pieza = new Pieza
+                    {
+                        UUIDPieza1 = reader["UUIDPieza"].ToString(),
+                        NombrePieza = reader["nombrePieza"].ToString(),
+                        DescripcionPieza = reader["descripcionPieza"].ToString(),
+                        FechaIngreso = Convert.ToDateTime(reader["fechaIngresoPieza"]),
+                        FechaAproxC = Convert.ToDateTime(reader["fechaAproxCP"]),
+                        AltoP = float.Parse(reader["AltoP"].ToString()),
+                        AnchoP = float.Parse(reader["AnchoP"].ToString()),
+                        ProfundidadP = float.Parse(reader["ProfundidadP"].ToString()),
+                        UbicacionP = reader["ubicacionP"].ToString(),
+                        EstadoConservacion = reader["estadoConservacion"].ToString(),
+                        UUIDUsuario_UP1 = reader["UUIDUsuario_UP"].ToString(),
+                        UUIDColeccion_CP1 = reader["UUIDColeccion_CP"].ToString(),
+                        IdCategoria_CP = Convert.ToInt32(reader["idCategoria_CP"])
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR BuscarPieza: " + ex.Message);
+            }
+            finally
+            {
+                objConnection.ConnectClosed();
+            }
+            return pieza;
+        }
+
+        // Ejecutar consulta y devolver lista de objetos PIEZA (usado en filtros/reportes)
+        public List<Pieza> BuscarListaPiezas(string sql)
+        {
+            List<Pieza> lista = new List<Pieza>();
+            try
+            {
+                BindingSource bindingSource = new BindingSource();
+
+                MySqlCommand cmd = new MySqlCommand(sql, objConnection.DataSource());
+                objConnection.ConnectOpened();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                bindingSource.DataSource = dt;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR BuscarListaPiezas: " + e.Message);
+            }
+            finally
+            {
+                objConnection.ConnectClosed();
+            }
+                return lista;
+ 
+        }
+
+
+        public string UUIDPieza1 { get => UUIDPieza; set => UUIDPieza = value; }
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         public string NombrePieza { get => nombrePieza; set => nombrePieza = value; }
         public string DescripcionPieza { get => descripcionPieza; set => descripcionPieza = value; }
         public DateTime FechaIngreso { get => fechaIngreso; set => fechaIngreso = value; }

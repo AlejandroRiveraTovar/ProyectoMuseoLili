@@ -25,12 +25,25 @@ namespace ProyectoMuseoLili.views
         private void button1_Click(object sender, EventArgs e)
         {
             correo = textBox1.Text;
+<<<<<<< Updated upstream
             Usuario user = new Usuario(correo);
 
             ControllerUsuario contrlU = new ControllerUsuario();
 
             user = contrlU.BuscarUsuarioPorCorreo(correo);
             if (user == null)
+=======
+
+            Usuario user = new Usuario();
+
+            ControllerUsuario contrlU = new ControllerUsuario();
+
+            Usuario objU = new Usuario();
+
+            objU = contrlU.BuscarUsuarioPorCorreo(correo);
+
+            if (objU == null)
+>>>>>>> Stashed changes
             {
                 MessageBox.Show("El correo no está registrado o erroneo.");
                 return;
@@ -78,7 +91,11 @@ namespace ProyectoMuseoLili.views
             }
             else
             {
+<<<<<<< Updated upstream
                 bool actualizacion = contrlU.ActualizarContrasena(new Usuario(correo, contrasena1));
+=======
+                bool actualizacion = contrlU.ActualizarContrasena(correo, contrasena1);
+>>>>>>> Stashed changes
                 if (actualizacion)
                 {
                     MessageBox.Show("Contraseña actualizada exitosamente.");

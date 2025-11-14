@@ -30,6 +30,7 @@ namespace ProyectoMuseoLili.views
             string correo = textBox1.Text;
             string password = textBox2.Text;
 
+<<<<<<< Updated upstream
             Usuario usuario = new Usuario(correo, password);
 
             ControllerUsuario contrlU = new ControllerUsuario();
@@ -37,14 +38,29 @@ namespace ProyectoMuseoLili.views
             usuario = contrlU.LoginUsuario(correo, password);
 
             if (usuario == null)
+=======
+            ControllerUsuario contrlU = new ControllerUsuario();
+           
+            Usuario objU = contrlU.LoginUsuario(correo, password);
+
+            
+
+            if( objU == null)
+>>>>>>> Stashed changes
             {
                 MessageBox.Show("Usuario o contraseña incorrectos");
             }
             else
             {
+<<<<<<< Updated upstream
                 MessageBox.Show("Bienvenido " + usuario.Nombre1Usuario);
                 this.Hide();
                 Form mainForm = new Main(usuario);
+=======
+                MessageBox.Show("Bienvenido " + objU.Nombre1Usuario);
+                this.Hide();
+                Form mainForm = new Main(objU);
+>>>>>>> Stashed changes
                 mainForm.Closed += (s, args) => this.Close();
                 mainForm.Show();
             }

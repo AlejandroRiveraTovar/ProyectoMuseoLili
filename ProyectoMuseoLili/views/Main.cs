@@ -22,9 +22,13 @@ namespace ProyectoMuseoLili.views
             InitializeComponent();
         }
 
+<<<<<<< Updated upstream
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+=======
+        
+>>>>>>> Stashed changes
     }
 }

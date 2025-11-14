@@ -19,8 +19,8 @@ namespace ProyectoMuseoLili.controllers
         internal Rol BuscarRol(int idRol)
         {
             string sql = $"SELECT * FROM roles WHERE idRol={idRol};";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarRol(sql);
+            Rol objR = new Rol();
+            return objR.BuscarRol(sql);
         }
     }
 }

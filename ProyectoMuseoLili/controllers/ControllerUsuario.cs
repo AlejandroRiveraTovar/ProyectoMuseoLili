@@ -31,34 +31,72 @@ namespace ProyectoMuseoLili.controllers
             return objConexion.ExecuteQuery(sql);
         }
 
+<<<<<<< Updated upstream
 
         internal bool ActualizarContrasena(Usuario objU)
         {
             string sql = $"UPDATE usuarios SET passwordUsuario = '{objU.PasswordUsuario}' WHERE emailUsuario = '{objU.EmailUsuario}';";
+=======
+<<<<<<< Updated upstream
+=======
+
+        internal bool ActualizarContrasena(string correo, string contra)
+        {
+            string sql = $"UPDATE usuarios SET passwordUsuario = '{contra}' WHERE emailUsuario = '{correo}';";
+>>>>>>> Stashed changes
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }
 
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         internal Usuario BuscarUsuarioPorCedula(string cedula)
         {
             string sql = $"SELECT * FROM usuarios WHERE cedulaUsuario='{cedula}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarUsuario(sql);
+            Usuario objUsuario = new Usuario();
+            return objUsuario.BuscarUsuario(sql);
         }
+<<<<<<< Updated upstream
 
         internal Usuario LoginUsuario(string correo, string contrasena)
         {
             string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}' AND passwordUsuario='{contrasena}';";
             ConnectDB objCDB = new ConnectDB();
             return objCDB.BuscarUsuario(sql);
+=======
+<<<<<<< Updated upstream
+=======
+
+        internal Usuario LoginUsuario(string correo, string contrasena)
+        {
+            
+            string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}' AND passwordUsuario='{contrasena}';";
+            Usuario objUsuario = new Usuario();
+            return objUsuario.BuscarUsuario(sql);
+         
+            
+>>>>>>> Stashed changes
         }
 
         internal Usuario BuscarUsuarioPorCorreo(string correo)
         {
+<<<<<<< Updated upstream
             string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}';";
             ConnectDB objCDB = new ConnectDB();
             return objCDB.BuscarUsuario(sql);
         }
+=======
+            BindingSource bs = new BindingSource();
+            string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}';";
+            Usuario ObjUsuario = new Usuario();
+            return ObjUsuario.BuscarUsuario(sql);
+            
+
+        }
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     }
 }
