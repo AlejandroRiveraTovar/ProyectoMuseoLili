@@ -19,8 +19,8 @@ namespace ProyectoMuseoLili.controllers
         internal Exhibicion BuscarExhibicion(string UUIDExhibicion)
         {
             string sql = $"SELECT * FROM exhibiciones WHERE UUIDExhibicion='{UUIDExhibicion}';";
-            Exhibicion objE = new Exhibicion();
-            return objE.BuscarExhibicion(sql);
+            ConnectDB objCDB = new ConnectDB();
+            return objCDB.BuscarExhibicion(sql);
         }
     }
 }
