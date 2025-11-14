@@ -18,8 +18,8 @@ namespace ProyectoMuseoLili.controllers
         internal Categoria BuscarCategoria(int idCategoria)
         {
             string sql = $"SELECT * FROM categorias WHERE idCategoria={idCategoria};";
-            Categoria objC = new Categoria();
-            return objC.BuscarCategoria(sql);
+            ConnectDB objCDB = new ConnectDB();
+            return objCDB.BuscarCategoria(sql);
         }
     }
 }

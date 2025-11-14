@@ -18,8 +18,8 @@ namespace ProyectoMuseoLili.controllers
         internal PrestamoExterno BuscarPrestamo(string UUIDPrestamo)
         {
             string sql = $"SELECT * FROM prestamosExternos WHERE UUIDPrestamoExterno='{UUIDPrestamo}';";
-            PrestamoExterno objPE = new PrestamoExterno();
-            return objPE.BuscarPrestamo(sql);
+            ConnectDB objCDB = new ConnectDB();
+            return objCDB.BuscarPrestamo(sql);
         }
     }
 }
