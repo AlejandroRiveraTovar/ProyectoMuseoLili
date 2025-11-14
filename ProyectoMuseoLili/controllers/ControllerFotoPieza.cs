@@ -11,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewFoto(FotoPieza objF)
         {
-            string sql = $"INSERT INTO fotosPieza VALUES ({objF.UUIDFotoP},'{objF.NombreFotoP}','{objF.ArchivoFotoP}','{objF.UUIDPieza_PFP}');";
+            string sql = $"INSERT INTO fotosPieza VALUES ({objF.UUIDFotoP1},'{objF.NombreFotoP}','{objF.ArchivoFotoP}','{objF.UUIDPieza_PFP1}');";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }

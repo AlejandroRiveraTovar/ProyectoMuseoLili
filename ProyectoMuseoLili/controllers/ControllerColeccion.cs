@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoMuseoLili.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewColeccion(Coleccion objCol)
         {
-            string sql = $"INSERT INTO colecciones VALUES ('{objCol.UUIDColeccion}','{objCol.NombreColeccion}','{objCol.DescripcionColeccion}');";
+            string sql = $"INSERT INTO colecciones VALUES ('{objCol.UUIDColeccion1}','{objCol.NombreColeccion}','{objCol.DescripcionColeccion}');";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }

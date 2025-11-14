@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoMuseoLili.models;
 
 namespace ProyectoMuseoLili.controllers
 {
@@ -10,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewExhibicion(Exhibicion objE)
         {
-            string sql = $"INSERT INTO exhibiciones VALUES ('{objE.UUIDExhibicion}','{objE.NombreExhibicion}','{objE.DescripcionExhibicion}','{objE.FechaInicio}','{objE.FechaFin}');";
+            string sql = $"INSERT INTO exhibiciones VALUES ('{objE.UUIDExhibicion1}','{objE.NombreExhibicion}','{objE.DescripcionExhibicion}','{objE.FechaInicio}','{objE.FechaFin}');";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }

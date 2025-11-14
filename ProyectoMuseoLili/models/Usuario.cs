@@ -11,9 +11,9 @@ namespace ProyectoMuseoLili.models
         private string UUIDUsuario;
         private string cedulaUsuario;
         private string nombre1Usuario;
-        private string nombre2Usuario;
+        private string? nombre2Usuario;
         private string apellido1Usuario;
-        private string apellido2Usuario;
+        private string? apellido2Usuario;
         private string emailUsuario;
         private string telefonoUsuario;
         private string passwordUsuario;
@@ -43,12 +43,23 @@ namespace ProyectoMuseoLili.models
             this.passwordUsuario = passwordUsuario;
         }
 
-        public string UUIDUsuario { get => UUIDUsuario; set => UUIDUsuario = value; }
+        public Usuario(string emailUsuario, string passwordUsuario)
+        {
+            this.emailUsuario = emailUsuario;
+            this.passwordUsuario = passwordUsuario;
+        }
+
+        public Usuario(string emailUsuario)
+        {
+            this.emailUsuario = emailUsuario;
+        }
+
+        public string UUIDUsuario1 { get => UUIDUsuario; set => UUIDUsuario = value; }
         public string CedulaUsuario { get => cedulaUsuario; set => cedulaUsuario = value; }
         public string Nombre1Usuario { get => nombre1Usuario; set => nombre1Usuario = value; }
-        public string Nombre2Usuario { get => nombre2Usuario; set => nombre2Usuario = value; }
+        public string? Nombre2Usuario { get => nombre2Usuario; set => nombre2Usuario = value; }
         public string Apellido1Usuario { get => apellido1Usuario; set => apellido1Usuario = value; }
-        public string Apellido2Usuario { get => apellido2Usuario; set => apellido2Usuario = value; }
+        public string? Apellido2Usuario { get => apellido2Usuario; set => apellido2Usuario = value; }
         public string EmailUsuario { get => emailUsuario; set => emailUsuario = value; }
         public string TelefonoUsuario { get => telefonoUsuario; set => telefonoUsuario = value; }
         public string PasswordUsuario { get => passwordUsuario; set => passwordUsuario = value; }

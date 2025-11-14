@@ -31,6 +31,6 @@ namespace ProyectoMuseoLili.models
         public string UUIDFotoP1 { get => UUIDFotoP; set => UUIDFotoP = value; }
         public string NombreFotoP { get => nombreFotoP; set => nombreFotoP = value; }
         public string ArchivoFotoP { get => archivoFotoP; set => archivoFotoP = value; }
-        public string UUIDPieza_PFP { get => UUIDPieza_PFP; set => UUIDPieza_PFP = value; }
+        public string UUIDPieza_PFP1 { get => UUIDPieza_PFP; set => UUIDPieza_PFP = value; }
     }
 }

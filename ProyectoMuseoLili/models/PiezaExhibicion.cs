@@ -19,8 +19,8 @@ namespace ProyectoMuseoLili.models
             this.idPieza_Exhibicion = idPieza_Exhibicion;
         }
 
-        public int IdPiezaExhibicion { get => idPiezaExhibicion; set => idPiezaExhibicion = value; }
-        public string UUIDPieza_PPE { get => UUIDPieza_PPE; set => UUIDPieza_PPE = value; }
-        public string UUIDExhibicion_EPE { get => UUIDExhibicion_EPE; set => UUIDExhibicion_EPE = value; }
+        public int IdPiezaExhibicion { get => idPieza_Exhibicion; set => idPieza_Exhibicion = value; }
+        public string UUIDPieza_PPE1 { get => UUIDPieza_PPE; set => UUIDPieza_PPE = value; }
+        public string UUIDExhibicion_EPE1 { get => UUIDExhibicion_EPE; set => UUIDExhibicion_EPE = value; }
     }
 }

@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="views\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.4.0" />
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
   </ItemGroup>

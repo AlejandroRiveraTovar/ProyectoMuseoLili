@@ -11,7 +11,7 @@ namespace ProyectoMuseoLili.controllers
     {
         internal bool InsertNewMaterial(Material objM)
         {
-            string sql = $"INSERT INTO materiales VALUES ({objM.UUIDMaterial},'{objM.NombreMaterial}');";
+            string sql = $"INSERT INTO materiales VALUES ({objM.UUIDMaterial1},'{objM.NombreMaterial}');";
             ConnectDB objConexion = new ConnectDB();
             return objConexion.ExecuteQuery(sql);
         }
