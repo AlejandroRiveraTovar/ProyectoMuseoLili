@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ProyectoMuseoLili.models
 {
@@ -31,6 +33,42 @@ namespace ProyectoMuseoLili.models
             this.descripcionExhibicion = descripcionExhibicion;
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;
+        }
+
+        // =================== Buscar Exhibicion ===================
+        public Exhibicion BuscarExhibicion(string sql)
+        {   
+            ConnectDB objConnection = new ConnectDB();
+            Exhibicion exhibicion = null;
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sql, objConnection.DataSource());
+                objConnection.ConnectOpened();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    exhibicion = new Exhibicion
+                    {
+                        UUIDExhibicion1 = reader["UUIDExhibicion"].ToString(),
+                        NombreExhibicion = reader["nombreExhibicion"].ToString(),
+                        DescripcionExhibicion = reader["descripcionExhibicion"].ToString(),
+                        FechaInicio = Convert.ToDateTime(reader["fechaInicio"]),
+                        FechaFin = Convert.ToDateTime(reader["fechaFin"])
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR BuscarExhibicion: " + ex.Message);
+            }
+            finally
+            {
+                objConnection.ConnectClosed();
+            }
+            return exhibicion;
         }
 
         public string UUIDExhibicion1 { get => UUIDExhibicion; set => UUIDExhibicion = value; }
