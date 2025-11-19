@@ -48,6 +48,12 @@
             textBox8 = new TextBox();
             label9 = new Label();
             label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
             SuspendLayout();
             // 
             // textBox2
@@ -220,11 +226,77 @@
             label10.TabIndex = 30;
             label10.Text = "Segundo nombre";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(356, 168);
+            label11.Name = "label11";
+            label11.Size = new Size(22, 30);
+            label11.TabIndex = 34;
+            label11.Text = "*";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(356, 197);
+            label12.Name = "label12";
+            label12.Size = new Size(22, 30);
+            label12.TabIndex = 35;
+            label12.Text = "*";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(356, 231);
+            label13.Name = "label13";
+            label13.Size = new Size(22, 30);
+            label13.TabIndex = 36;
+            label13.Text = "*";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(356, 261);
+            label14.Name = "label14";
+            label14.Size = new Size(22, 30);
+            label14.TabIndex = 37;
+            label14.Text = "*";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.Location = new Point(356, 293);
+            label15.Name = "label15";
+            label15.Size = new Size(22, 30);
+            label15.TabIndex = 38;
+            label15.Text = "*";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(356, 323);
+            label16.Name = "label16";
+            label16.Size = new Size(22, 30);
+            label16.TabIndex = 39;
+            label16.Text = "*";
+            // 
             // Registrarse
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
             Controls.Add(textBox7);
             Controls.Add(textBox8);
             Controls.Add(label9);
@@ -272,5 +344,11 @@
         private TextBox textBox8;
         private Label label9;
         private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
     }
 }

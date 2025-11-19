@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ProyectoMuseoLili.models
 {
@@ -34,6 +36,44 @@ namespace ProyectoMuseoLili.models
             this.fechaPrestamo = fechaPrestamo;
             this.fechaDevolucion = fechaDevolucion;
             this.descripcionPrestamoExterno = descripcionPrestamoExterno;
+        }
+
+        // =================== Buscar Prestamo ===================
+        public PrestamoExterno BuscarPrestamo(string sql)
+        {
+            ConnectDB objConnection = new ConnectDB();
+
+            PrestamoExterno prestamo = null;
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sql, objConnection.DataSource());
+                objConnection.ConnectOpened();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    prestamo = new PrestamoExterno
+                    {
+                        UUIDPrestamoExterno1 = reader["UUIDPrestamo_Externo"].ToString(),
+                        Institucion = reader["institucion"].ToString(),
+                        DireccionI = reader["direccionI"].ToString(),
+                        FechaPrestamo = Convert.ToDateTime(reader["fechaPrestamo"]),
+                        FechaDevolucion = Convert.ToDateTime(reader["fechaDevolucion"]),
+                        DescripcionPrestamoExterno = reader["descripcionPrestamoExterno"].ToString()
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR BuscarPrestamo: " + ex.Message);
+            }
+            finally
+            {
+                objConnection.ConnectClosed();
+            }
+            return prestamo;
         }
 
         public string UUIDPrestamoExterno1 { get => UUIDPrestamoExterno; set => UUIDPrestamoExterno = value; }

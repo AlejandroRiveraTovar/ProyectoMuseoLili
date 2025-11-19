@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ProyectoMuseoLili.models
 {
@@ -52,6 +53,46 @@ namespace ProyectoMuseoLili.models
         public Usuario(string emailUsuario)
         {
             this.emailUsuario = emailUsuario;
+        }
+
+        public Usuario BuscarUsuario(string sql)
+        {
+            ConnectDB objConection = new ConnectDB();
+            Usuario usuario = null;
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sql, objConection.DataSource());
+                objConection.ConnectOpened();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    usuario = new Usuario
+                    {
+                        UUIDUsuario1 = reader["UUIDUsuario"].ToString(),
+                        CedulaUsuario = reader["cedulaUsuario"].ToString(),
+                        Nombre1Usuario = reader["nombre1Usuario"].ToString(),
+                        Nombre2Usuario = reader["nombre2Usuario"].ToString(),
+                        Apellido1Usuario = reader["apellido1Usuario"].ToString(),
+                        Apellido2Usuario = reader["apellido2Usuario"].ToString(),
+                        EmailUsuario = reader["emailUsuario"].ToString(),
+                        TelefonoUsuario = reader["telefonoUsuario"].ToString(),
+                        PasswordUsuario = reader["passwordUsuario"].ToString(),
+                        IdRol_RU = Convert.ToInt32(reader["idRol_RU"])
+                    };
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR BuscarUsuario: " + ex.Message);
+            }
+            finally
+            {
+                objConection.ConnectClosed();
+            }
+            return usuario;
         }
 
         public string UUIDUsuario1 { get => UUIDUsuario; set => UUIDUsuario = value; }

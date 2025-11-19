@@ -43,22 +43,22 @@ namespace ProyectoMuseoLili.controllers
         internal Usuario BuscarUsuarioPorCedula(string cedula)
         {
             string sql = $"SELECT * FROM usuarios WHERE cedulaUsuario='{cedula}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarUsuario(sql);
+            Usuario objUsuario = new Usuario();
+            return objUsuario.BuscarUsuario(sql);
         }
 
         internal Usuario LoginUsuario(string correo, string contrasena)
         {
             string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}' AND passwordUsuario='{contrasena}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarUsuario(sql);
+            Usuario objUsuario = new Usuario();
+            return objUsuario.BuscarUsuario(sql);
         }
 
         internal Usuario BuscarUsuarioPorCorreo(string correo)
         {
             string sql = $"SELECT * FROM usuarios WHERE emailUsuario='{correo}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarUsuario(sql);
+            Usuario objUsuario = new Usuario();
+            return objUsuario.BuscarUsuario(sql);
         }
     }
 }

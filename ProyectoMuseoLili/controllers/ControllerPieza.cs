@@ -19,31 +19,31 @@ namespace ProyectoMuseoLili.controllers
         internal Pieza BuscarPieza(string UUIDPieza)
         {
             string sql = $"SELECT * FROM piezas WHERE uuidPieza='{UUIDPieza}';";
-            ConnectDB objCDB = new ConnectDB();
-            return objCDB.BuscarPieza(sql);
+            Pieza objP = new Pieza();
+            return objP.BuscarPieza(sql);
         }
 
-        internal List<Pieza> BuscarPiezasPorCategoria(int idCategoria)
+        internal BindingSource BuscarPiezasPorCategoria(int idCategoria)
         {
             string sql = $"SELECT * FROM pieza WHERE idCategoria_CP = {idCategoria}";
-            ConnectDB objCDB = new ConnectDB();
-            List<Pieza> lista = objCDB.BuscarListaPiezas(sql);
+            Pieza objP = new Pieza();
+            BindingSource lista = objP.BuscarListaPiezas(sql);
             return lista;
         }
 
-        internal List<Pieza> BuscarPiezasPorFecha(DateTime inicio, DateTime fin)
+        internal BindingSource BuscarPiezasPorFecha(DateTime inicio, DateTime fin)
         {
             string sql = $"SELECT * FROM pieza WHERE fechaIngresoPieza BETWEEN '{inicio:yyyy-MM-dd}' AND '{fin:yyyy-MM-dd}'";
-            ConnectDB objCDB = new ConnectDB();
-            List<Pieza> lista = objCDB.BuscarListaPiezas(sql);
+            Pieza objP = new Pieza();
+            BindingSource lista = objP.BuscarListaPiezas(sql);
             return lista;
         }
 
-        internal List<Pieza> BuscarPiezasPorEstado(string estado)
+        internal BindingSource BuscarPiezasPorEstado(string estado)
         {
             string sql = $"SELECT * FROM pieza WHERE estadoConservacion = '{estado}'";
-            ConnectDB objCDB = new ConnectDB();
-            List<Pieza> lista = objCDB.BuscarListaPiezas(sql);
+            Pieza objP = new Pieza();
+            BindingSource lista = objP.BuscarListaPiezas(sql);
             return lista;
         }
     }
